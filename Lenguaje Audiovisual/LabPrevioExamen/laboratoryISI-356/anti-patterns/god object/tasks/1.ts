@@ -1,4 +1,51 @@
+class Movie {
+    constructor(){}
+}
+
+class Snack {
+    constructor(){}
+}
+
+class Ticket {
+    constructor(){}
+}
+
+class Employee {
+    constructor(){}
+}
+
+
 class Cinema {
+    movies: Movie[] = [];
+    snacks: Snack[] = [];
+    tickets: Ticket[] = [];
+    employees: Employee[] = [];
+
+    // Métodos relacionados con películas
+    addMovie(movie: Movie) {
+        this.movies.push(movie);
+    }
+
+    // Métodos relacionados con snacks
+    buySnack(snack: Snack) {
+        this.snacks.push(snack);
+    }
+
+    // Métodos relacionados con entradas
+    buyTicket(ticket: Ticket) {
+        this.tickets.push(ticket);
+    }
+
+    // Métodos relacionados con empleados
+    hireEmployee(employee: Employee) {
+        this.employees.push(employee);
+    }
+}
+
+
+
+
+/*class Cinema {
     movies: any[] = [];
     snacks: any[] = [];
     tickets: any[] = [];
@@ -23,4 +70,4 @@ class Cinema {
     hireEmployee(employee: any) {
         this.employees.push(employee);
     }
-}
+}*/

@@ -1,6 +1,38 @@
 // loggerService.ts
 
 export class LoggerService {
+    private static instance: LoggerService | null = null;
+    private filePath: string;
+
+    private constructor(filePath: string) {
+        this.filePath = filePath;
+    }
+
+    public static getInstance(filePath: string): LoggerService {
+        if (LoggerService.instance === null) {
+            LoggerService.instance = new LoggerService(filePath);
+        }
+        return LoggerService.instance;
+    }
+
+    logMessage(message: string): void {
+        // Lógica ficticia para escribir en el archivo
+        console.log(`Writing to ${this.filePath}: ${message}`);
+    }
+}
+
+// app.ts
+
+import { LoggerService } from './loggerService';
+
+let logger1 = LoggerService.getInstance("log.txt");
+let logger2 = LoggerService.getInstance("log.txt");
+
+logger1.logMessage("This is a message from logger1");
+logger2.logMessage("This is a message from logger2");
+
+
+/*export class LoggerService {
     private filePath: string;
 
     constructor(filePath: string) {
@@ -22,4 +54,4 @@ let logger2 = new LoggerService("log.txt");
 
 logger1.logMessage("This is a message from logger1");
 logger2.logMessage("This is a message from logger2");
-
+*/
